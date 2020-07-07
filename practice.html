@@ -6,24 +6,47 @@
   </head>
   <body>
     <h1 id= "ev">イーブイ</h1>
-    <div class="stones">
-      <button type="button" id="fireStone">ほのおのいし</button>
-      <button type="button" id="thunderStone">かみなりのいし</button>
-      <button type="button" id="waterStone">みずのいし</button>
-    </div>
-    <button type="button" id="cancel"><a href="practice.html">B</a></button>
+    <button type="button" class="stones" id="fireStone">ほのおのいし</button>
+    <button type="button" class="stones" id="thunderStone">かみなりのいし</button>
+    <button type="button" class="stones" id="waterStone">みずのいし</button>
+    <button type="button" id="cancel"><a href="">B</a></button>
     <script>
       const ev = document.getElementById('ev');
-      const stones = document.getElementsByClassName('stones');
       const firestone = document.getElementById('fireStone');
       const thunderStone = document.getElementById('thunderStone');
       const waterStone = document.getElementById('waterStone');
+
+      const cancel = document.getElementById('cancel');
+      cancel.style.display = 'none';
+
       firestone.addEventListener('click', function(){
         ev.innerHTML = 'ブースター';
         ev.style.color = 'red';
-        while (stones.firstChild) {
-          stones.removeChild(stones.firstChild);
+        const stones = document.getElementsByClassName('stones');
+        for (let i = 0; i < stones.length; i++) {
+          stones[i].style.display = 'none';
         }
+        cancel.style.display = 'block';
+      }, false);
+
+      thunderStone.addEventListener('click', function(){
+        ev.innerHTML = 'サンダース';
+        ev.style.color = 'yellow';
+        const stones = document.getElementsByClassName('stones');
+        for (let i = 0; i < stones.length; i++) {
+          stones[i].style.display = 'none';
+        }
+        cancel.style.display = 'block';
+      }, false);
+
+      waterStone.addEventListener('click', function(){
+        ev.innerHTML = 'シャワーズ';
+        ev.style.color = 'blue';
+        const stones = document.getElementsByClassName('stones');
+        for (let i = 0; i < stones.length; i++) {
+          stones[i].style.display = 'none';
+        }
+        cancel.style.display = 'block';
       }, false);
     </script>
   </body>
